@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!-- 
+Student: Manuel Freites
+ -->
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="_style/main.css" />
+    <link rel="stylesheet" href="_style/jquery.mobile.css" />
+    <link rel="stylesheet" href="_style/blue-theme.min.css" />
+    <script src="_js/jquery.js"></script>
+    <script src="_js/jquery.mobile.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+	<script src="_js/myMap.js"></script>
+    <script src="_js/myScript.js"></script>
+</head>
+
+<body>
+
+	<div data-role="page" id="mainPage">
+        <div data-role="header">
+			<h1>SellsMore's Clients</h1>
+			<a href="#popupMenu" data-rel="popup" data-role="button" class="ui-btn-right" data-inline="true" data-icon="location" data-theme="a">Map</a>
+			<div data-role="popup" id="popupMenu" data-theme="d">
+					<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+						<li data-role="divider" data-theme="b">Map Options:</li>
+						<li><a id="customMap" href="#">Custom Map</a></li>
+						<li><a id="allMap" href="#">All company Map</a></li>
+					</ul>
+			</div>
+		</div>
+		
+		  <section class="ui-content " role="main">
+            <div id="availability" style="text-align:center">
+                <h4> <span></span> </h4>
+            </div>
+            <div class="content">
+			  <ul id="list" data-role="listview">
+				
+			  
+			  </ul>
+			  <div id="rowCount"></div>
+				<div id="divButton">
+					<button id="btnEmail" data-role="button" data-inline="true">Email Editor</button>
+					<button id="btnAdd" data-role="button" data-inline="true">Add</button>
+					<button id="btnChange" class="btnGreen"  data-role="button" data-inline="true">Update</button>
+					<button id="btnErase" class="btnRed"  data-role="button" data-inline="true">Delete</button>
+				</div>
+			</div>
+        </section>
+		<div data-role="popup" id="emailEditor" data-overlay-theme="a">
+		  <div data-role="header" ><h1>Email Editor</h1></div>
+		  <div data-role="main" class="ui-content" id="main">
+			<h4 id="emailEditMsg">Select the email template you want to send everybody</h4>
+			<ul id="emails" data-role="listview">
+			</ul>
+			<button id="btnAddEmail" data-role="button" data-inline="true">Add</button>
+			<button id="btnEditEmail" class="btnGreen" data-role="button" data-inline="true">Edit</button>
+			<button id="btnDeleteEmail" class="btnRed"  data-role="button" data-inline="true">Delete</button>
+			  
+		</div>
+		<div data-role="footer"></div>
+
+		
+   	
+	</div>
+
+		<div  id="addEmailPopup" data-overlay-theme="a">
+			  <div data-role="header" ><h1>Add Email</h1></div>
+			  <div data-role="main" class="ui-content" id="main">
+			  <form>
+				<input type="hidden" id="hiddenID" name="hiddenID"/>
+				Email Subject <input type="text" id="txtSubject" name="txtSubject"/>
+				Email Body <textarea id="txaBody" name="txaBody" rows="4" cols="50"></textarea>
+			  </form>
+				
+				<button id="btnSaveEmail" data-role="button" data-inline="true">Add</button>
+				<button id="btnEmailCancel" data-role="button" data-inline="true">Cancel</button>
+				  
+			</div>
+			<div data-role="footer"></div>
+
+		
+   	
+		</div>
+		<div data-role="footer">
+				<h1>Trademark &copy Assignment 3</h1>
+		 </div>
+	</div>
+		
+	<div data-role="page" id="addPage">
+        <div data-role="header">
+			 <a href="" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h3>Company info</h3>
+			<a href="#popupMenu2" data-rel="popup" data-role="button" class="ui-btn-right" data-inline="true" data-icon="location" data-theme="a">Map</a>
+			<div data-role="popup" id="popupMenu2" data-theme="d">
+					<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+						<li data-role="divider" data-theme="b">Map Options:</li>
+						<li><a id="allMap" href="#">All company Map</a></li>
+					</ul>
+			</div>
+		</div>
+		
+		<section class="ui-content " role="main">
+			  <form >
+				<label for="txtId">Company Name:</label>
+				<input type="text" name="txtName" id="txtName" maxlength="20">
+				<label for="txtId">Address:</label>
+				<input type="text" name="txtAddress" id="txtAddress" maxlength="200">
+				<label for="txtId">City:</label>
+				<input type="text" name="txtCity" id="txtCity" maxlength="20">
+				<label for="txtId">Country:</label>
+				<input type="text" name="txtCountry" id="txtCountry" maxlength="20">
+				<label for="txtId">Postal Code:</label>
+				<input type="text" name="txtPost" id="txtPost" maxlength="6" onkeypress="return postKeyPress(event)">
+				<label for="txtId">Contact:</label>
+				<input type="text" name="txtContact" id="txtContact" maxlength="20">
+				<label for="txtId">Phone Number:</label>
+				<input type="text" name="txtPhone" id="txtPhone" maxlength="12" onkeypress="return numberKeyPress(event)">
+				<label for="txtId">Email:</label>
+				<input type="text" name="txtEmail" id="txtEmail" maxlength="20">
+				<input type="hidden" name="txtGeolocation" id="txtGeolocation" >
+				<input type="hidden" name="txtFullAddr" id="txtFullAddr" >
+				<button id="btnSave">Save</button>
+			</form>
+        </section>
+   	   <div data-role="footer">
+            <h1>Trademark &copy Assignment 3</h1>
+        </div>
+	</div>
+	
+	<div data-role="page" id="info">
+        <div data-role="header">
+			 <a href="" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h3>Company info</h3>
+			<a href="#popupMenu3" data-rel="popup" data-role="button" class="ui-btn-right" data-inline="true" data-icon="location" data-theme="a">Map</a>
+			<div data-role="popup" id="popupMenu3" data-theme="d">
+					<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+						<li data-role="divider" data-theme="b">Map Options:</li>
+						<li><a id="customMap" href="#">Full Map</a></li>
+						<li><a id="allMap" href="#">All company Map</a></li>
+					</ul>
+			</div>
+		</div>
+		  <section class="ui-content " role="main" >
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div id="companyInfo" ></div>
+					</div>
+					<div class="ui-block-b" id="infoMap"></div>
+					<div id="infoButtons" >
+							<button id="btnOpenEmail"  data-role="button" data-inline="true">Email Editor</button>
+							<button id="btnUpdate" class ="btnGreen" data-role="button" data-inline="true">Update</button>
+							<button id="btnDelete"  class ="btnRed" data-role="button" data-inline="true">Delete</button>
+						</div>
+				</div>
+        </section>
+		
+		
+		<div data-role="popup" id="emailEditor2" data-overlay-theme="a">
+		  <div data-role="header" ><h1>Email Editor</h1></div>
+		  <div data-role="main" class="ui-content" id="main">
+			<h4 id="emailEditMsg">Select the email template you want to this email</h4>
+			<ul id="emails" data-role="listview">
+			</ul>
+			<button id="btnAddEmail" data-role="button" data-inline="true">Add</button>
+			<button id="btnEditEmail" class="btnGreen" data-role="button" data-inline="true">Edit</button>
+			<button id="btnDeleteEmail" class="btnRed"  data-role="button" data-inline="true">Delete</button>
+			  
+		</div>
+		<div data-role="footer"></div>
+
+		
+   	
+	</div>
+
+		<div  id="addEmailPopup2" data-overlay-theme="a">
+			  <div data-role="header" ><h1>Add Email</h1></div>
+			  <div data-role="main" class="ui-content" id="main">
+			  <form>
+			  	<input type="hidden" id="hiddenID" name="hiddenID"/>
+				Email Subject <input type="text" id="txtSubject" name="txtSubject"/>
+				Email Body <textarea id="txaBody" name="txaBody" rows="4" cols="50"></textarea>
+			  </form>
+				
+				<button id="btnSaveEmail" data-role="button" data-inline="true">Add</button>
+				<button id="btnEmailCancel" data-role="button" data-inline="true">Cancel</button>
+				  
+			</div>
+			<div data-role="footer"></div>
+
+		
+   	
+		</div>
+   	   <div data-role="footer">
+            <h1>Trademark &copy Assignment 3</h1>
+        </div>
+	</div>
+
+	<div data-role="page" id="mapPage">
+        <div data-role="header">
+			 <a href="" data-icon="back" data-rel="back" title="Go back">Back</a>
+			<h3>Complete Map</h3>
+			<a href="#popupOptions" data-rel="popup" data-role="button" class="ui-btn-right" data-inline="true" data-icon="gear" data-theme="b">Options</a>
+			<div data-role="popup" id="popupOptions" data-theme="d">
+					<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+						<li data-role="divider" data-theme="b">Map Options:</li>
+						<li><input type="checkbox" name="checkbox-lines" id="chbLines"> <label for="chbLines">Show Lines</label></li>
+					</ul>
+			</div>
+		</div>
+		  <section class="ui-content " role="main" >
+			<div id="notFound"></div>
+			<div id="completeMap"></div>
+        </section>
+   	   <div data-role="footer">
+            <h1>Trademark &copy Assignment 3</h1>
+        </div>
+	</div>
+
+</body>
+<!-- 
+Student: Manuel Freites
+ID: 991318976
+ -->
+
+</html>
