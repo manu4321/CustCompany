@@ -1,0 +1,109 @@
+/*
+Student: Manuel Freites
+
+*/
+
+body{
+	overflow-y: auto;
+
+}
+#list{
+	max-height: 500px;
+	overflow-y: auto;
+}
+#list fieldset{
+	position: relative;
+}
+#list fieldset input{
+	position: absolute;
+	z-index:1;
+	top: 15px;
+	left: 5px;
+	width:30px;
+	height:30px;
+
+}
+#infoMap{
+	height: 250px;
+}
+#rowCount{
+	margin-top:25px;
+	text-align: center;
+}
+
+#divButton{
+	text-align: center;
+}
+
+#btnErase, #btnChange{
+	display: none;
+}
+.btnGreen{
+	background-color: #008000 !important;
+}
+
+.btnRed{
+	background-color: #FF0000 !important;
+}
+	#info .ui-grid-a > .ui-block-a, #info .ui-grid-a > .ui-block-b{
+		text-align: center;
+	
+	}
+	
+#completeMap{
+	width: 100%;
+	height: 540px;
+}
+
+#emailEditor #emails, #emailEditor2 #emails{
+    max-height: 250px;
+    margin: 5px;
+    overflow: auto;
+}
+
+
+#addEmailPopup{
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 20%;
+    left: 35%;
+    background: #FFF;
+}
+
+#addEmailPopup2{
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 20%;
+    left: 35%;
+    background: #FFF;
+}
+@media (max-width: 480px){
+	#list{
+		max-height: 300px;
+	}
+	
+	#info .ui-grid-a > .ui-block-a, #info .ui-grid-a > .ui-block-b{
+		width: 100%;
+		text-align: left;
+	
+	}
+	
+	#addEmailPopup{
+    display: none;
+    top: 10%;
+    left: 0;
+}
+
+#addEmailPopup2{
+    display: none;
+	top: 10%;
+    left: 0;
+}
+
+}
+/* 
+ * Student: Manuel Freites
+ * ID: 991318976
+/*
